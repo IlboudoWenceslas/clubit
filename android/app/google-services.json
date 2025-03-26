@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1070597721886",
+    "project_id": "clubit-1523b",
+    "storage_bucket": "clubit-1523b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070597721886:android:389f04d21620262725c30f",
+        "android_client_info": {
+          "package_name": "com.example.clubit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDncFkbn1TEoMXl1fFqA818Py0xtP7lOio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
