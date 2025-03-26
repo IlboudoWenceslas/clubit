@@ -42,6 +42,7 @@ dependencies:
   connectivity_plus: ^6.1.3
   hive_flutter: ^1.1.0
   flutter_connectivity: ^0.0.3
+  url_launcher: ^6.3.1
  # badges: ^3.1.2
 
 dev_dependencies:

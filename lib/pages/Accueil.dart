@@ -36,6 +36,10 @@ class _AcceuilpageState extends State<Acceuilpage> {
       _isOnline = connected;
     });
   }
+  String truncateWithEllipsis(int cutoff, String myString) {
+    return (myString.length <= cutoff) ? myString : '${myString.substring(0, cutoff)}...';
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +83,7 @@ class _AcceuilpageState extends State<Acceuilpage> {
                   children: [
                     Text(
                       'Salut, ${widget.username}',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                     CircleAvatar(
                       backgroundColor: Colors.white,
@@ -133,7 +137,7 @@ class _AcceuilpageState extends State<Acceuilpage> {
                     children: [
                       Text(
                         'Les Formations les plus suivies',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       Text('Voir tout', style: TextStyle(color: Colors.blue)),
                     ],
@@ -167,13 +171,14 @@ class _AcceuilpageState extends State<Acceuilpage> {
                             var formation = formations[index].data() as Map<String, dynamic>;
                             List<dynamic> participants = formation['participants'] ?? [];
                             return Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(6.0),
                               child: _buildLanguageCard(
-                                formation['titre'].length,
+                                truncateWithEllipsis(08, formation['titre']), // tronque à 20 caractères par exempl
                                 _getIconForCategory(formation['categorie']),
                                 _getColorForCategory(formation['categorie']),
                                 participants.length,
-                                formation['id'], // Passer l'ID de la formation
+                                formation['id'].toString(),
+                                // Passer l'ID de la formation
                               ),
                             );
                           },
@@ -227,7 +232,7 @@ class _AcceuilpageState extends State<Acceuilpage> {
                           formattedDate,
                           participants.length,
                           formation['categorie'],
-                          formation['id'], // Passer l'ID de la formation
+                          formation['id'].toString(), // Passer l'ID de la formation
                         ),
                       );
                     },
@@ -279,7 +284,7 @@ class _AcceuilpageState extends State<Acceuilpage> {
             ),
             SizedBox(height: 8),
             Text(
-              participants > 0 ? '$participants participants' : 'Aucun participant',
+              participants > 0 ? '$participants participants' : 'Aucun',
               style: TextStyle(fontSize: 12),
             ),
           ],
